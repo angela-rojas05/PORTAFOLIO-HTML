@@ -1,0 +1,247 @@
+<!-- Estructura básica del documento HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>División sintética</title>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Roboto', 'Ubuntu', 'Segoe UI', sans-serif;
+    background: rgba(236, 82, 123, 0.523);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: radial-gradient(circle,#850E35, #EE6983, #ffc4c4, #fff5e4); 
+    border-radius: 8px;
+    padding: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.511);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    color: rgb(0, 0, 0);
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    color: #070707;
+    margin-bottom: 30px;
+    font-size: 0.9em;
+}
+.info {
+    text-align: center;
+    color: white;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 95%;
+    margin: 0 auto 8px;
+}
+
+.input-section {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 600;
+}
+
+.help-text {
+    font-size: 0.85em;
+    color: #000000;
+    margin-top: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #333;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #555;
+}
+
+button:active {
+    background: #222;
+}
+
+.result-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 4px;
+    border: 1px solid #e0e0e0;
+    display: none;
+}
+
+.result-section.show {
+    display: block;
+}
+
+.result-title {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+}
+
+.process-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+}
+
+.process-table tr:first-child td {
+    background: #333;
+    color: white;
+    font-weight: 500;
+}
+
+.divisor-cell {
+    background: #fafafa;
+    font-weight: 500;
+}
+
+.final-result {
+    background: #f0f0f0;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.final-result p {
+    margin: 8px 0;
+    color: #333;
+}
+
+.error {
+    background: #ffebee;
+    color: #c62828;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    border: 1px solid #ffcdd2;
+}
+
+.example {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 0.85em;
+    border: 1px solid #e0e0e0;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #555;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+</style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+</head>
+<body>
+   <div class="container">
+
+    <h1>División Sintética de Polinomios</h1>
+  <p class="info">
+  Tecnológico de Software - Fundamentos de Álgebra - Primer Cuatrimestre 2025 - 
+  Ángela Yaritzi Rojas Brito - Grupo 1B - Mtro. Jorge Javier Pedroza Romero
+</p>
+
+    <p class="subtitle">Soporta coeficientes y raíces reales y complejas</p>
+    <div class="input-section">
+        <label for="polinomio">Polinomio:</label>
+        <input type="text" id="polinomio" placeholder="Ejemplo: 5x^3 + 3x^2 + 2x + 1 o x^2 - 6x + 11">
+        <p class="help-text">Ingresa el polinomio con formato algebraico</p>
+        <div class="example">
+            <strong>Ejemplos:</strong><br>
+            • 5x^3 + 3x^2 + 2x + 1<br>
+            • x^3 - 6x^2 + 11x - 6<br>
+            • 2x^2 + (3+2i)x + 1<br>
+            • x^4 - 1
+        </div>
+    </div>
+
+    <div class="input-section">
+        <label for="raiz">Raíz (divisor):</label>
+        <input type="text" id="raiz" placeholder="Ejemplo: 2 o 1+i">
+        <p class="help-text">Ingresa el valor de la raíz (puede ser complejo)</p>
+        <div class="example">
+            <strong>Ejemplos:</strong> 2, -3, 1+i, 2-3i
+        </div>
+    </div>
+
+    <button onclick="calcularDivision()">Calcular División Sintética</button>
+
+    <div id="resultado" class="result-section"></div>
+</div>
+<script src = "index.html"></script>
+</body>
+</html>

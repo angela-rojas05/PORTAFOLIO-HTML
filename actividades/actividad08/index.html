@@ -1,0 +1,297 @@
+<!-- Estructura básica del documento HTML -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Operaciones Algebraicas</title>
+<style>
+    /* Reset y configuración base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    color: #ffffff; /* Blanco */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3b82f6; /* Azul */
+    margin-bottom: 3rem;
+}
+
+/* Sección de inputs */
+.input-section {
+    margin-bottom: 2rem;
+}
+
+.field-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffffff; /* Blanco */
+    margin-bottom: 0.5rem;
+}
+
+/* Campos de texto */
+textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 1rem;
+    background-color: #2d2d2d;
+    border: 2px solid #3b82f6; /* Azul */
+    border-radius: 8px;
+    color: #ffffff; /* Blanco */
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #fbbf24; /* Amarillo */
+}
+
+textarea::placeholder {
+    color: #888888;
+}
+
+/* Botón de calcular */
+.calculate-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #3b82f6; /* Azul */
+    color: #ffffff; /* Blanco */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.calculate-button:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.calculate-button:active {
+    transform: translateY(0);
+}
+
+/* Sección de resultados */
+.result-section {
+    margin-top: 2rem;
+}
+
+.info-card {
+    background-color: #2d2d2d;
+    border: 2px solid #fbbf24; /* Amarillo */
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.info-card h3 {
+    color: #fbbf24; /* Amarillo */
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.result-content {
+    font-family: 'Courier New', monospace;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ffffff; /* Blanco */
+    background-color: #1a1a1a;
+    padding: 1rem;
+    border-radius: 6px;
+    border-left: 4px solid #fbbf24; /* Amarillo */
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    textarea {
+        min-height: 80px;
+        font-size: 0.9rem;
+    }
+}
+/* Pie de página */
+footer {
+    background-color: var(--azul-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin-bottom: 0.25rem;
+    opacity: 0.9;
+}
+/* Base de los botones */
+.convert-button,
+.load-button,
+.reset-button,
+.clear-button,
+.export-button,
+.satisfactory-btn,
+.improve-btn,
+.add-pattern-btn {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Escala al hover para sensación mágica */
+.convert-button:hover,
+.load-button:hover,
+.reset-button:hover,
+.clear-button:hover,
+.export-button:hover,
+.satisfactory-btn:hover,
+.improve-btn:hover,
+.add-pattern-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 20px var(--sombra);
+}
+
+/* Brillo animado tipo fantasía */
+.convert-button::after,
+.load-button::after,
+.reset-button::after,
+.clear-button::after,
+.export-button::after,
+.satisfactory-btn::after,
+.improve-btn::after,
+.add-pattern-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+  animation: sparkle 2.5s infinite linear;
+  pointer-events: none;
+}
+
+/* Animación de destello flotante */
+@keyframes sparkle {
+  0% {
+    transform: rotate(0deg) translateX(0) translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: rotate(45deg) translateX(50%) translateY(50%);
+    opacity: 0.3;
+  }
+  100% {
+    transform: rotate(90deg) translateX(0) translateY(0);
+    opacity: 0.6;
+  }
+}
+
+/*Animacion en tarjetas */
+.info-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 8px 16px var(--sombra);
+}
+
+header h1 {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid var(--oro);
+  width: 0;
+  animation: typing 3s steps(30, end) forwards, blink 0.7s;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: var(--oro); }
+}
+
+</style>
+</head>
+<body>
+    <!-- Estructura básica del documento HTML -->
+<div class="container">
+        <h1>Calculadora de Variables</h1>
+        <p>Tecnológico de Software - Fundamentos de Álgebra - Primer Cuatrimestre 2025 - Ángela Yaritzi Rojas Brito - Grupo 1B - Mtro. Jorge Javier Pedroza Romero</p></p><br>
+            
+        <div class="input-section">
+            <div class="field-group">
+                <label for="variables">Variables:</label>
+                <textarea id="variables" placeholder="Ejemplo: feature_cost, w1 = 1, w2 = 2, w3 = 3"></textarea>
+            </div>
+
+            <div class="field-group">
+                <label for="equations">Ecuaciones:</label>
+                <textarea id="equations" placeholder="Ejemplo: feature_cost = w1 * w2 + w3"></textarea>
+            </div>
+
+            <button id="calculate-btn" class="calculate-button">Calcular</button>
+        </div>
+
+        <div class="result-section">
+            <div class="info-card">
+                <h3>Resultado:</h3>
+                <div id="result" class="result-content">
+                    Ingresa las variables y ecuaciones para ver el resultado
+                </div>
+            </div>
+        </div>
+    </div>
+        
+<script src = "script.js"></script>
+</body>
+</html>
