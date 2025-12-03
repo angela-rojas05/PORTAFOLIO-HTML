@@ -1,35 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Actividades</title>
-
-    <!-- CSS GLOBAL -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadoras Unificadas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Portafolio de Actividades</h1>
-        <p>Selecciona una actividad para abrirla</p>
-    </header>
+  <header>
+    <h1>Calculadoras del Portafolio</h1>
+    <p class="subtitle">Accede a todas las actividades desde un solo lugar</p>
+  </header>
 
-    <main>
-        <div class="menu-actividades">
-            <a class="btn-actividad" href="actividades/actividad02/index.html">Actividad 02</a>
-            <a class="btn-actividad" href="actividades/actividad04/index.html">Actividad 04</a>
-            <a class="btn-actividad" href="actividades/actividad06/index.html">Actividad 06</a>
-            <a class="btn-actividad" href="actividades/actividad08/index.html">Actividad 08</a>
-            <a class="btn-actividad" href="actividades/actividad10/index.html">Actividad 10</a>
-            <a class="btn-actividad" href="actividades/actividad12/index.html">Actividad 12</a>
-            <a class="btn-actividad" href="actividades/actividad14/index.html">Actividad 14</a>
-        </div>
-    </main>
+  <div class="container">
 
-    <!-- JS GLOBAL -->
-    <script src="js/global.js" defer></script>
+    <div class="activities-grid">
+
+      <!-- CALCULADORA 1 -->
+      <div class="activity-card">
+        <h3>Recta Numérica</h3>
+        <iframe
+          src="actividades/actividad02/index.html"
+          title="Recta Numérica"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+      <!-- CALCULADORA 2 -->
+      <div class="activity-card">
+        <h3>Números Complejos</h3>
+        <iframe
+          src="actividades/actividad04/index.html"
+          title="Números Complejos"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+      <!-- CALCULADORA 3 -->
+      <div class="activity-card">
+        <h3>Expresiones Algebraicas</h3>
+        <iframe
+          src="actividades/actividad06/index.html"
+          title="Expresiones Algebraicas"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+      <!-- CALCULADORA 4 -->
+      <div class="activity-card">
+        <h3>Variables y Operaciones</h3>
+        <iframe
+          src="actividades/actividad08/index.html"
+          title="Variables"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+      <!-- CALCULADORA 5 -->
+      <div class="activity-card">
+        <h3>Productos Notables</h3>
+        <iframe
+          src="actividades/actividad10/index.html"
+          title="Productos Notables"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+      <!-- CALCULADORA 6 -->
+      <div class="activity-card">
+        <h3>División Sintética</h3>
+        <iframe
+          src="actividades/actividad12/index.html"
+          title="División Sintética"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+      <!-- CALCULADORA 7 -->
+      <div class="activity-card">
+        <h3>Ecuaciones Lineales</h3>
+        <iframe
+          src="actividades/actividad14/index.html"
+          title="Ecuaciones Lineales"
+          style="width:100%; height:350px; border:none; border-radius:8px;">
+        </iframe>
+      </div>
+
+    </div> <!-- cierre de activities-grid -->
+
+  </div> <!-- cierre container -->
+
+  <footer>
+    © 2025 · Portafolio Álgebra · Angel
+  </footer>
+
+  <script src="script.js"></script>
 
 </body>
 </html>
